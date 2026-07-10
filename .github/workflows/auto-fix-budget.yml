@@ -1,10 +1,6 @@
 name: Auto-Fix Budget Monitoring
 
 on:
-  # schedule disabled — burns Actions minutes
-  # schedule:
-  #   # Run every hour to track budget in near real-time
-  #   - cron: '0 * * * *'
   workflow_dispatch: # Allow manual trigger
     inputs:
       budget_threshold:
