@@ -1,14 +1,10 @@
 name: Auto-Fix Health Monitor
 
 # Monitor auto-fix workflow health and performance
-# Runs every 6 hours and on manual dispatch
+# Runs on manual dispatch
 # Alerts via GitHub issues when problems are detected
 
 on:
-  # schedule disabled — burns Actions minutes
-  # schedule:
-  #   # Run every 6 hours
-  #   - cron: '0 */6 * * *'
   workflow_dispatch: # Allow manual trigger
     inputs:
       check_hours:
