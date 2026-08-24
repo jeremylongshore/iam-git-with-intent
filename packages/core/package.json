@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.30.0",
-    "@google-cloud/secret-manager": "^5.6.0",
+    "@google-cloud/secret-manager": "^7.0.0",
     "@google-cloud/storage": "^7.14.0",
     "@google-cloud/vertexai": "^1.10.0",
     "@google/generative-ai": "^0.21.0",
@@ -44,21 +44,21 @@
     "@opentelemetry/exporter-metrics-otlp-http": "^0.57.0",
     "@opentelemetry/exporter-prometheus": "^0.57.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
-    "@opentelemetry/resources": "^1.30.0",
-    "@opentelemetry/sdk-metrics": "^1.30.0",
+    "@opentelemetry/resources": "^2.10.0",
+    "@opentelemetry/sdk-metrics": "^2.10.0",
     "@opentelemetry/sdk-node": "^0.57.0",
-    "@opentelemetry/sdk-trace-node": "^1.30.0",
+    "@opentelemetry/sdk-trace-node": "^2.10.0",
     "@opentelemetry/semantic-conventions": "^1.28.0",
-    "firebase-admin": "^12.7.0",
-    "openai": "^6.14.0",
-    "stripe": "^20.0.0",
-    "vite": "7.3.1",
-    "zod": "^3.22.0"
+    "firebase-admin": "^14.3.0",
+    "openai": "^7.5.0",
+    "stripe": "^22.5.0",
+    "vite": "8.2.2",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/node": "^20.10.0",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.0",
+    "@types/node": "^26.2.0",
+    "eslint": "^10.8.1",
+    "typescript": "^7.0.2",
     "vitest": "^4.0.18"
   }
 }
