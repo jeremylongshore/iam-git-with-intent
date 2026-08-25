@@ -4,6 +4,8 @@
 [![Tests](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/test.yml/badge.svg)](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/test.yml)
 [![ARV](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/arv.yml/badge.svg)](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/arv.yml)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U5S225PTME)
+
 AI-powered CLI for PR automation. Semantic merge conflict resolution, issue-to-code generation, complexity scoring, and full autopilot — all with approval gating.
 
 **v0.10.0** · **BSL 1.1** · [Interactive Overview](https://intent-solutions-io.github.io/iam-git-with-intent/overview.html) · [Docs](000-docs/)
