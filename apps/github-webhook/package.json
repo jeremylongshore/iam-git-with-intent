@@ -18,7 +18,7 @@
     "@gwi/engine": "*",
     "@octokit/auth-app": "^6.0.0",
     "@octokit/rest": "^20.0.0",
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "express": "^4.18.2",
     "firebase-admin": "12.7.0",
     "helmet": "^7.1.0",
