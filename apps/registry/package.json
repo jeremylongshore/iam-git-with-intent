@@ -16,11 +16,11 @@
   },
   "dependencies": {
     "@gwi/core": "*",
-    "firebase-admin": "12.7.0",
-    "vite": "7.3.1"
+    "firebase-admin": "14.4.0",
+    "vite": "8.3.0"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
-    "vitest": "^4.0.18"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
   }
 }
