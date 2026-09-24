@@ -1,6 +1,9 @@
 name: Tests
 
 on:
+  # Called by ci-enhanced.yml ('Run Tests'); without this trigger that
+  # workflow fails to load at all.
+  workflow_call:
   push:
     branches: [main, develop]
   pull_request:
