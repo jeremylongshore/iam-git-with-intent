@@ -72,3 +72,7 @@ infra/*.tfplan
 *.backup
 consistency-reports/
 .venv/
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
