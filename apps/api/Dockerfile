@@ -2,7 +2,7 @@
 # Multi-tenant REST API for the GWI SaaS platform
 
 # Build stage
-FROM node:22-alpine AS builder
+FROM node:26-alpine AS builder
 
 WORKDIR /app
 
@@ -44,7 +44,7 @@ RUN npm run build --workspace=@gwi/engine
 RUN npm run build --workspace=@gwi/api
 
 # Production stage
-FROM node:22-alpine AS runner
+FROM node:26-alpine AS runner
 
 WORKDIR /app
 
