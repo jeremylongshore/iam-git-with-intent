@@ -242,19 +242,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  # =============================================================================
-  # Deploy to Production
-  # =============================================================================
-
-  deploy-production:
-    name: Deploy to Production
-    needs: [validate, release]
-    if: needs.validate.outputs.is_prerelease == 'false'
-    uses: ./.github/workflows/deploy.yml
-    with:
-      environment: production
-      version: ${{ needs.validate.outputs.version }}
-    secrets: inherit
+  # Deploy to Production: removed 2026-09-24. It called deploy.yml (Cloud
+  # Run + Firebase Hosting), which GCP's 2026-07-09 teardown made dead and
+  # whose YAML no longer parses, so the reference stopped this whole
+  # workflow from loading. deploy.yml stays in the tree, disabled on GitHub.
 
   # =============================================================================
   # Post-Release Tasks
