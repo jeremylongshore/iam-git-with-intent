@@ -15,8 +15,13 @@ updates:
     groups:
       minor-and-patch:
         update-types: ["minor", "patch"]
-      major:
-        update-types: ["major"]
+    # No npm major updates from the bot. The old all-majors group bundled 41
+    # breaking upgrades (TypeScript 7, zod 4, express 5, React 19, eslint 10,
+    # vitest 5, Google Cloud SDKs...) into one PR (#104) that could never go
+    # green. Majors are deliberate migrations done by hand, one at a time.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     labels: ["dependencies", "gwi-triage"]
     commit-message:
       prefix: "chore(deps)"
