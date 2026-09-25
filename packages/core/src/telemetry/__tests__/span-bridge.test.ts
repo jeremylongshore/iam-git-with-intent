@@ -6,7 +6,7 @@
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import { SpanStatusCode, SpanKind as OTelSpanKind, TraceFlags } from '@opentelemetry/api';
-import { Resource } from '@opentelemetry/resources';
+import { resourceFromAttributes } from '@opentelemetry/resources';
 import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
 import { GwiSpanBridge } from '../exporters/span-bridge.js';
 import { createTracer, type Tracer } from '../tracing.js';
@@ -16,7 +16,7 @@ describe('GwiSpanBridge', () => {
   let tracer: Tracer;
 
   beforeEach(() => {
-    const resource = new Resource({ [ATTR_SERVICE_NAME]: 'test-service' });
+    const resource = resourceFromAttributes({ [ATTR_SERVICE_NAME]: 'test-service' });
     bridge = new GwiSpanBridge(resource);
     tracer = createTracer({
       serviceName: 'test-service',
@@ -106,7 +106,7 @@ describe('GwiSpanBridge', () => {
     childSpan.end();
 
     const otelSpan = bridge.convert(childSpan);
-    expect(otelSpan.parentSpanId).toBe(parentSpan.spanId);
+    expect(otelSpan.parentSpanContext?.spanId).toBe(parentSpan.spanId);
 
     parentSpan.end();
   });
