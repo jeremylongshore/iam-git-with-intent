@@ -31,14 +31,14 @@
   },
   "dependencies": {
     "@gwi/core": "*",
-    "dockerode": "^4.0.4",
+    "dockerode": "^4.0.12",
     "ssh2": "^1.16.0",
     "zod": "^3.22.0"
   },
   "devDependencies": {
-    "@types/dockerode": "^3.3.31",
-    "@types/node": "^20.10.0",
-    "@types/ssh2": "^1.15.1",
+    "@types/dockerode": "^4.0.1",
+    "@types/node": "^20.19.43",
+    "@types/ssh2": "^1.15.6",
     "eslint": "^8.56.0",
     "typescript": "^5.3.0",
     "vitest": "^4.0.18"

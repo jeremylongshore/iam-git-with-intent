@@ -11,7 +11,7 @@
  * @module @gwi/core/telemetry/exporters/otel
  */
 
-import { Resource } from '@opentelemetry/resources';
+import { resourceFromAttributes } from '@opentelemetry/resources';
 import { ATTR_SERVICE_NAME, ATTR_SERVICE_VERSION } from '@opentelemetry/semantic-conventions';
 import {
   NodeTracerProvider,
@@ -85,22 +85,25 @@ export function initializeOTel(options: OTelInitOptions): void {
     options.environment ?? process.env.DEPLOYMENT_ENV ?? 'production';
 
   // Create OTel Resource
-  const resource = new Resource({
+  const resource = resourceFromAttributes({
     [ATTR_SERVICE_NAME]: options.serviceName,
     [ATTR_SERVICE_VERSION]: serviceVersion,
     'deployment.environment': environment,
   });
 
   // --- Trace Provider ---
-  tracerProvider = new NodeTracerProvider({ resource });
-
+  // SDK 2.x: span processors are passed to the constructor
+  // (addSpanProcessor was removed).
   if (endpoint) {
     const traceExporter = new OTLPTraceExporter({
       url: `${endpoint}/v1/traces`,
     });
     batchProcessor = new BatchSpanProcessor(traceExporter);
-    tracerProvider.addSpanProcessor(batchProcessor);
   }
+  tracerProvider = new NodeTracerProvider({
+    resource,
+    spanProcessors: batchProcessor ? [batchProcessor] : [],
+  });
 
   tracerProvider.register();
 
