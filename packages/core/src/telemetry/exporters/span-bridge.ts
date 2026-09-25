@@ -14,7 +14,7 @@ import {
   TraceFlags,
 } from '@opentelemetry/api';
 import type { ReadableSpan, TimedEvent } from '@opentelemetry/sdk-trace-node';
-import type { IResource } from '@opentelemetry/resources';
+import type { Resource } from '@opentelemetry/resources';
 import type { Span, SpanKind } from '../tracing.js';
 
 // =============================================================================
@@ -64,9 +64,9 @@ const SPAN_KIND_MAP: Record<SpanKind, OTelSpanKind> = {
  *   const readableSpan = bridge.convert(gwiSpan);
  */
 export class GwiSpanBridge {
-  private resource: IResource;
+  private resource: Resource;
 
-  constructor(resource: IResource) {
+  constructor(resource: Resource) {
     this.resource = resource;
   }
 
@@ -114,7 +114,14 @@ export class GwiSpanBridge {
       name: span.name,
       kind: SPAN_KIND_MAP[span.kind] ?? OTelSpanKind.INTERNAL,
       spanContext: () => spanContext,
-      parentSpanId: span.parentSpanId,
+      // SDK 2.x replaced parentSpanId with a full parent SpanContext.
+      parentSpanContext: span.parentSpanId
+        ? {
+            traceId: span.traceId,
+            spanId: span.parentSpanId,
+            traceFlags: TraceFlags.SAMPLED,
+          }
+        : undefined,
       startTime,
       endTime,
       status: {
@@ -127,7 +134,7 @@ export class GwiSpanBridge {
       duration: hrTimeDuration(startTime, endTime),
       ended: true,
       resource: this.resource,
-      instrumentationLibrary: {
+      instrumentationScope: {
         name: '@gwi/core',
         version: '0.7.1',
       },
