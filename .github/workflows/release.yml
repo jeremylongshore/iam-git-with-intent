@@ -245,7 +245,7 @@ jobs:
   # Deploy to Production: removed 2026-09-24. It called deploy.yml (Cloud
   # Run + Firebase Hosting), which GCP's 2026-07-09 teardown made dead and
   # whose YAML no longer parses, so the reference stopped this whole
-  # workflow from loading. deploy.yml stays in the tree, disabled on GitHub.
+  # workflow from loading. deploy.yml itself was deleted in a follow-up.
 
   # =============================================================================
   # Post-Release Tasks
