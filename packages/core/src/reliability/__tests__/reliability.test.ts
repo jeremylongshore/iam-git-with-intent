@@ -508,7 +508,9 @@ describe('Observability', () => {
 
       const metrics = registry.getMetrics();
       const timer = metrics.find(m => m.name === 'test.auto_timer');
-      expect(timer?.value).toBeGreaterThanOrEqual(10);
+      // setTimeout may fire up to ~1ms early against Date.now() millisecond
+      // truncation; allow 2ms slack so the check is not flaky.
+      expect(timer?.value).toBeGreaterThanOrEqual(8);
     });
 
     it('should support labels', () => {

@@ -132,7 +132,8 @@ describe('sdlc-events', () => {
 
       expect(listener).toHaveBeenCalledTimes(2);
       expect(event.action).toBe('completed');
-      expect(event.durationMs).toBeGreaterThanOrEqual(50);
+      // setTimeout may fire slightly early against Date.now() truncation.
+      expect(event.durationMs).toBeGreaterThanOrEqual(45);
     });
 
     it('should emit failed event with error details', () => {
