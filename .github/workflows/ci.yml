@@ -127,7 +127,12 @@ jobs:
     name: Build Docker Images
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'push'
+    # GCP was torn down 2026-07-09 (the WIF pool no longer exists), so image
+    # push and the Cloud Run/Agent Engine deploys below cannot succeed.
+    # Gated off behind a repo variable instead of deleted, so re-enabling a
+    # future deploy target is a one-line change. deploy-dev/deploy-prod need
+    # this job and are skipped with it.
+    if: github.event_name == 'push' && vars.GCP_DEPLOY_ENABLED == 'true'
 
     permissions:
       contents: read

@@ -182,7 +182,9 @@ describe('BaseConnector', () => {
       const duration = Date.now() - start;
 
       expect(duration).toBeGreaterThanOrEqual(45);
-      expect(duration).toBeLessThanOrEqual(100);
+      // Upper bound is loose: under parallel test load a 50ms sleep was
+      // observed at 264-334ms. The check is that sleep waits, not how precisely.
+      expect(duration).toBeLessThanOrEqual(1000);
     });
   });
 
