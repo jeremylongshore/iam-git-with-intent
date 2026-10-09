@@ -91,7 +91,7 @@ jobs:
       - name: Get or create discussion category
         if: steps.download.outputs.has_data == 'true'
         id: category
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             // Query for existing category
@@ -164,7 +164,7 @@ jobs:
 
       - name: Post report to discussions
         if: steps.download.outputs.has_data == 'true'
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const fs = require('fs');
