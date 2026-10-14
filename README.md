@@ -1,5 +1,11 @@
 # Git With Intent
 
+<!-- intent-select-partner:start -->
+[![Intent Solutions: Claude Partner Network Select Services Partner](https://raw.githubusercontent.com/intent-solutions-io/.github/b82af5d3e7951d85e39ea9e65cc24ee8278722a7/assets/brand/claude-select-partner.svg)](https://intentsolutions.io/)
+
+Intent Solutions is a Claude Partner Network Select Services Partner.
+<!-- intent-select-partner:end -->
+
 [![CI/CD](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/ci.yml/badge.svg)](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/ci.yml)
 [![Tests](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/test.yml/badge.svg)](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/test.yml)
 [![ARV](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/arv.yml/badge.svg)](https://github.com/intent-solutions-io/iam-git-with-intent/actions/workflows/arv.yml)
