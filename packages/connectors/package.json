@@ -64,7 +64,7 @@
     "google-auth-library": "^9.0.0",
     "googleapis": "^137.0.0",
     "prom-client": "^15.1.0",
-    "vite": "7.3.6",
+    "vite": "7.3.7",
     "zod": "^3.22.0"
   },
   "devDependencies": {
