@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@gwi/core": "*",
-    "hono": "^4.13.8",
+    "hono": "^4.13.13",
     "zod": "^3.23.8"
   },
   "devDependencies": {
